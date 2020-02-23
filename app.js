@@ -71,18 +71,13 @@ setInterval( ()=> {
 }, 1800000);
 
 setInterval( ()=> {
-    let number = Math.floor(Math.random() * Math.floor(3));
-    switch(number) {
-        case 0:
-            client.say(process.env.CHANNEL, 'Tu veux me soutenir gratuitement ? Regarde une publicité de 20s à 30s sur ce lien : https://utip.io/onegaxx . Aucune limite de visionnage :p Tu peux me soutenir à fond ! MERCI <3 <3');
-            break;
-        case 1:
-            client.say(process.env.CHANNEL, 'Avec Loots, tu peux me soutenir gratuitement en envoyant un court message via ce lien :  https://loots.com/onegaxx ! Il s\'affichera direct sur le live ! MERCI ! <3 <3');
-            break;
-        case 2:
-            client.say(process.env.CHANNEL, 'N\'oubliez pas qu\'avec Twitch Prime vous pouvez vous sub gratuitement à la chaîne si vous avez Amazon Prime ! Ça se passe ici : https://twitch.amazon.com/prime');
-            break;
-        default:
-            break;
-    }
+    client.say(process.env.CHANNEL, 'Tu veux me soutenir gratuitement ? Regarde une publicité de 20s à 30s sur ce lien : https://utip.io/onegaxx . Aucune limite de visionnage :p Tu peux me soutenir à fond ! MERCI <3 <3');
 }, 1500000);
+
+setInterval( ()=> {
+    client.say(process.env.CHANNEL, 'Avec Loots, tu peux me soutenir gratuitement en envoyant un court message via ce lien :  https://loots.com/onegaxx ! Il s\'affichera direct sur le live ! MERCI ! <3 <3');
+}, 3000000);
+
+setInterval( ()=> {
+    client.say(process.env.CHANNEL, 'N\'oubliez pas qu\'avec Twitch Prime vous pouvez vous sub gratuitement à la chaîne si vous avez Amazon Prime ! Ça se passe ici : https://twitch.amazon.com/prime');
+}, 4500000);

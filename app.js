@@ -7,6 +7,15 @@ const client = new tmi.Client(options);
 
 client.connect();
 
+client.on("raided", (channel, username, viewers) => {
+    client.say(process.env.CHANNEL, `Un grand merci à ${username} pour son Raid !! Bienvenue à tous !`);
+});
+
+client.on("resub", (channel, username, months, message, userstate, methods) => {
+    let cumulativeMonths = ~~userstate["msg-param-cumulative-months"];
+    client.say(process.env.CHANNEL, `${username} vient de resub à la chaine !! (${cumulativeMonths}e mois)`);
+});
+
 client.on('message', (channels, userstate, message, self) => {
     if(self) return;
     switch(message) {

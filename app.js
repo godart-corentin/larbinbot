@@ -55,6 +55,9 @@ client.on('message', (channels, userstate, message, self) => {
         case '!prime':
             client.say(process.env.CHANNEL, 'N\'oubliez pas qu\'avec Twitch Prime vous pouvez vous sub gratuitement à la chaîne si vous avez Amazon Prime ! Ça se passe ici : https://twitch.amazon.com/prime');
             break;
+        case '!raid':
+            client.say(process.env.CHANNEL, 'Voici mon lien d\'installation pour Raid: Shadow Legends. Installe-le à l\'aide de ce lien et nous gagnerons tous les deux des cadeaux gratuits qui nous donneront un coup de pouce ! https://link.plrm.zone/app/da0g1')
+            break;
         case '!uptime':
             break;
         default:

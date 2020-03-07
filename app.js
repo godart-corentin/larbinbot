@@ -16,6 +16,15 @@ client.on("resub", (channel, username, months, message, userstate, methods) => {
     client.say(process.env.CHANNEL, `${username} vient de resub à la chaine !! (${cumulativeMonths}e mois)`);
 });
 
+client.on("submysterygift", (channel, username, numbOfSubs, methods, userstate) => {
+    let senderCount = ~~userstate["msg-param-sender-count"];
+    client.say(process.env.CHANNEL, `${username} vient d'offrir ${numbOfSubs} subs !! Un grand merci à lui.`);
+});
+
+client.on("subscription", (channel, username, method, message, userstate) => {
+    client.say(process.env.CHANNEL, `${username} vient de se sub à la chaine !!`);
+});
+
 client.on('message', (channels, userstate, message, self) => {
     if(self) return;
     switch(message) {

@@ -83,22 +83,28 @@ client.on('message', (channels, userstate, message, self) => {
     }
 });
 
-setInterval( ()=> {
-    client.say(process.env.CHANNEL, "Suis-moi sur mes réseaux sociaux pour tout savoir sur mon stream et ma chaine youtube ! (commandes : !youtube !twitter !facebook )");
-}, 1200000);
+let start = 0;
 
 setInterval( ()=> {
-    client.say(process.env.CHANNEL, "N'hésites pas à me follow pour participer au Giveaway des 500 follows ! Tapes la commande !giveaway pour plus d'infos :p ");
-}, 1800000);
-
-setInterval( ()=> {
-    client.say(process.env.CHANNEL, 'Tu veux me soutenir gratuitement ? Regarde une publicité de 20s à 30s sur ce lien : https://utip.io/onegaxx . Aucune limite de visionnage :p Tu peux me soutenir à fond ! MERCI <3 <3');
-}, 1500000);
-
-setInterval( ()=> {
-    client.say(process.env.CHANNEL, 'Avec Loots, tu peux me soutenir gratuitement en envoyant un court message via ce lien :  https://loots.com/onegaxx ! Il s\'affichera direct sur le live ! MERCI ! <3 <3');
-}, 3000000);
-
-setInterval( ()=> {
-    client.say(process.env.CHANNEL, 'N\'oubliez pas qu\'avec Twitch Prime vous pouvez vous sub gratuitement à la chaîne si vous avez Amazon Prime ! Ça se passe ici : https://twitch.amazon.com/prime');
-}, 4500000);
+    switch(start) {
+        case 0:
+            client.say(process.env.CHANNEL, "Suis-moi sur mes réseaux sociaux pour tout savoir sur mon stream et ma chaine youtube ! (commandes : !youtube !twitter !facebook )");
+            break;
+        case 1:
+            client.say(process.env.CHANNEL, "N'hésites pas à me follow pour participer au Giveaway des 500 follows ! Tapes la commande !giveaway pour plus d'infos :p ");
+            break;
+        case 2:
+            client.say(process.env.CHANNEL, 'Tu veux me soutenir gratuitement ? Regarde une publicité de 20s à 30s sur ce lien : https://utip.io/onegaxx . Aucune limite de visionnage :p Tu peux me soutenir à fond ! MERCI <3 <3');
+            break;
+        case 3:
+            client.say(process.env.CHANNEL, 'Avec Loots, tu peux me soutenir gratuitement en envoyant un court message via ce lien :  https://loots.com/onegaxx ! Il s\'affichera direct sur le live ! MERCI ! <3 <3');
+            break;
+        case 4:
+            client.say(process.env.CHANNEL, 'N\'oubliez pas qu\'avec Twitch Prime vous pouvez vous sub gratuitement à la chaîne si vous avez Amazon Prime ! Ça se passe ici : https://twitch.amazon.com/prime');
+            break;
+    }
+    start++;
+    if(start > 4) {
+        start = 0;
+    }
+}, 900000);

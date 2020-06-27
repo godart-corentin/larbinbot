@@ -65,7 +65,7 @@ client.on('message', (channels, userstate, message, self) => {
             client.say(process.env.CHANNEL, 'Il n\'y a pas de délai.');
             break;
         case '!callot':
-            client.say(process.env.CHANNEL, 'Prejent !!!');
+            client.say(process.env.CHANNEL, 'Prejent !!!!');
             break;
         case '!config':
             client.say(process.env.CHANNEL, 'Ma config  : CPU : i7-4790K / GPU : GTX 1070 EVGA SC Black Edition / RAM : 16 GO / SSD : 250 GO SAMSUNG 850 EVO / HDD : 2 To / Ecran Gaming : Acer XB240H 144hz 3D / Ecran Monitoring : BenQ GL2450 60hz / Clavier : Asus Cerberus / Souris : Logitech g402  / Micro : Bird UM1 / Casque : HyperX Cloud Alpha / pour le reste et les détails, c\'est en description :p');

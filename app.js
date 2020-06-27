@@ -31,9 +31,9 @@ client.on('message', (channels, userstate, message, self) => {
         case '!utip':
             client.say(process.env.CHANNEL, 'Tu veux me soutenir gratuitement ? Regarde une publicité de 20s à 30s sur ce lien : https://utip.io/onegaxx . Aucune limite de visionnage :p Tu peux me soutenir à fond ! MERCI <3 <3');
             break;
-        case '!loots':
+        /*case '!loots':
             client.say(process.env.CHANNEL, 'Avec Loots, tu peux me soutenir gratuitement en envoyant un court message via ce lien :  https://loots.com/onegaxx ! Il s\'affichera direct sur le live ! MERCI ! <3 <3');
-            break;
+            break;*/
         case '!gta':
             client.say(process.env.CHANNEL, 'Tu veux me rejoindre pour monter notre empire? Follow la chaine et rejoins nous sur discord (!discord). Ensuite, ajoute-moi sur GTA : Onegaxx.')
             break;
@@ -96,15 +96,15 @@ setInterval( ()=> {
         case 2:
             client.say(process.env.CHANNEL, 'Tu veux me soutenir gratuitement ? Regarde une publicité de 20s à 30s sur ce lien : https://utip.io/onegaxx . Aucune limite de visionnage :p Tu peux me soutenir à fond ! MERCI <3 <3');
             break;
-        case 3:
+        /*case 3:
             client.say(process.env.CHANNEL, 'Avec Loots, tu peux me soutenir gratuitement en envoyant un court message via ce lien :  https://loots.com/onegaxx ! Il s\'affichera direct sur le live ! MERCI ! <3 <3');
-            break;
-        case 4:
+            break;*/
+        case 3:
             client.say(process.env.CHANNEL, 'N\'oubliez pas qu\'avec Twitch Prime vous pouvez vous sub gratuitement à la chaîne si vous avez Amazon Prime ! Ça se passe ici : https://twitch.amazon.com/prime');
             break;
     }
     start++;
-    if(start > 4) {
+    if(start > 3) {
         start = 0;
     }
 }, 900000);

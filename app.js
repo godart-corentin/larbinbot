@@ -32,6 +32,16 @@ client.on(
   }
 );
 
+client.on(
+  "subgift",
+  (channel, username, streakMonths, recipient, methods, userstate) => {
+    client.say(
+      process.env.CHANNEL,
+      `${username} vient d'offrir un sub à ${recipient} !! Un grand merci à lui.`
+    );
+  }
+);
+
 client.on("subscription", (channel, username, method, message, userstate) => {
   client.say(
     process.env.CHANNEL,

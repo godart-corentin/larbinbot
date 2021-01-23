@@ -10,7 +10,7 @@ client.connect();
 client.on("raided", (channel, username, viewers) => {
   client.say(
     process.env.CHANNEL,
-    `Un grand merci à ${username} pour son Raid !! Bienvenue à tous !`
+    `Un grand merci à ${username} pour son Raid de ${viewers} viewers !! Bienvenue à tous !`
   );
 });
 
@@ -18,14 +18,13 @@ client.on("resub", (channel, username, months, message, userstate, methods) => {
   let cumulativeMonths = ~~userstate["msg-param-cumulative-months"];
   client.say(
     process.env.CHANNEL,
-    `${username} vient de resub à la chaine !! (${cumulativeMonths}e mois)`
+    `${username} continue l'aventure avec ${cumulativeMonths} consécutifs !! (${months}e mois). Merci l'ami !`
   );
 });
 
 client.on(
   "submysterygift",
   (channel, username, numbOfSubs, methods, userstate) => {
-    let senderCount = ~~userstate["msg-param-sender-count"];
     client.say(
       process.env.CHANNEL,
       `${username} vient d'offrir ${numbOfSubs} subs !! Un grand merci à lui.`
@@ -34,33 +33,33 @@ client.on(
 );
 
 client.on("subscription", (channel, username, method, message, userstate) => {
-  client.say(process.env.CHANNEL, `${username} vient de se sub à la chaine !!`);
+  client.say(
+    process.env.CHANNEL,
+    `${username} rejoint l'aventure !! Merci à toi.`
+  );
 });
 
 client.on("message", (channels, userstate, message, self) => {
   if (self) return;
   switch (message) {
-    /*case '!loots':
-            client.say(process.env.CHANNEL, 'Avec Loots, tu peux me soutenir gratuitement en envoyant un court message via ce lien :  https://loots.com/onegaxx ! Il s\'affichera direct sur le live ! MERCI ! <3 <3');
-            break;*/
-    case "!gta":
-      client.say(
-        process.env.CHANNEL,
-        "Tu veux me rejoindre pour monter notre empire? Follow la chaine et rejoins nous sur discord (!discord). Ensuite, ajoute-moi sur GTA : Onegaxx."
-      );
-      break;
+    // case "!gta":
+    //   client.say(
+    //     process.env.CHANNEL,
+    //     "Tu veux me rejoindre pour monter notre empire? Follow la chaine et rejoins nous sur discord (!discord). Ensuite, ajoute-moi sur GTA : Onegaxx."
+    //   );
+    //   break;
     case "!epic":
       client.say(
         process.env.CHANNEL,
         "Mon pseudo EPIC pour jouer ensemble : Onegaxx_TV. Deux règles, être follower et rester sur le live :p"
       );
       break;
-    case "!tw3mods":
-      client.say(
-        process.env.CHANNEL,
-        'Mes mods "The Witcher 3" : The Witcher 3 HD Reworked Project / All Quest Objectives On Map / No Dirty Lens Effect / Wiedzmin Lighting Mod'
-      );
-      break;
+    // case "!tw3mods":
+    //   client.say(
+    //     process.env.CHANNEL,
+    //     'Mes mods "The Witcher 3" : The Witcher 3 HD Reworked Project / All Quest Objectives On Map / No Dirty Lens Effect / Wiedzmin Lighting Mod'
+    //   );
+    //   break;
     case "!youtube":
       client.say(
         process.env.CHANNEL,
@@ -120,8 +119,11 @@ client.on("message", (channels, userstate, message, self) => {
         process.env.CHANNEL,
         "Voici mon lien d'installation pour Raid: Shadow Legends. Installe-le à l'aide de ce lien et nous gagnerons tous les deux des cadeaux gratuits qui nous donneront un coup de pouce ! https://link.plrm.zone/app/da0g1"
       );
-      break;
-    case "!uptime":
+    case "!instreamly":
+      client.say(
+        process.env.CHANNEL,
+        "Cliquez sur le lien et rejoignez la famille inSTREAMLY ! Streamez et gagnez de l'argent grâce à votre passion ! https://instream.ly/inS-FR_onegaxx_?p=10"
+      );
       break;
     default:
       break;
@@ -150,9 +152,6 @@ setInterval(() => {
         "N'oubliez pas qu'avec Twitch Prime vous pouvez vous sub gratuitement à la chaîne si vous avez Amazon Prime ! Ça se passe ici : https://twitch.amazon.com/prime"
       );
       break;
-    /*case 3:
-            client.say(process.env.CHANNEL, 'Avec Loots, tu peux me soutenir gratuitement en envoyant un court message via ce lien :  https://loots.com/onegaxx ! Il s\'affichera direct sur le live ! MERCI ! <3 <3');
-            break;*/
   }
   start++;
   if (start > 2) {
